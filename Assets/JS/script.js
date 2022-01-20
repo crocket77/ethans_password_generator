@@ -12,8 +12,9 @@ function generatePassword() {
   var length;
   var password=[];
   //Get password length between 8-128
+ 
   length = parseInt(prompt('How long would you like the password to be? It can be from 8-128 characters.'));
-  while(length===""||length===NaN){
+  while(!length){
     alert("Please enter a number")
     generatePassword();
   }
@@ -38,19 +39,16 @@ for(let i=0;i<length;){
 
     if(inNumber&&i<length){
       password.push(numArr[Math.floor(Math.random()*numArr.length)])
-      console.log("number")
       i++;
     }
 
     if(inSpecial&&i<length){
       password.push(specialArr[Math.floor(Math.random()*specialArr.length)])
-      console.log("special")
       i++;
     }
 
     if(inLower&&i<length){
       password.push(charArr[Math.floor(Math.random()*charArr.length)])
-      console.log("lower")
       i++;
     }
 
@@ -58,17 +56,12 @@ for(let i=0;i<length;){
       let upperChar = charArr[Math.floor(Math.random()*charArr.length)]
       upperChar=upperChar.toUpperCase();
       password.push(upperChar);
-      console.log("upper");
       i++;
-      //debugger;
     }
-    
   } 
 
   shuffleArray(password); 
-  console.log(password.length)
   var endPass=password.join("")
-  console.log(endPass);
   return endPass;
   
 };
@@ -102,10 +95,10 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var finalPass = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  debugger;
   passwordText.value = finalPass;
 
 };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
