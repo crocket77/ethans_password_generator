@@ -95,7 +95,6 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var finalPass = generatePassword();
   var passwordText = document.querySelector("#password");
-  debugger;
   passwordText.value = finalPass;
 
 };
